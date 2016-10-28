@@ -39,4 +39,9 @@ $scope.goBack = function() {
     $state.go('lobby');
 }
 
+$scope.ptorQuestionGoA = 'ptor-question-go-a' + $stateParams.questionID;
+$scope.ptorQuestionGoB = 'ptor-question-go-b' + $stateParams.questionID;
+$scope.ptorQuestionTextA = 'ptor-question-text-a' + $stateParams.questionID;
+$scope.ptorQuestionTextB = 'ptor-question-text-b' + $stateParams.questionID;
+
 }]); 
