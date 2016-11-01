@@ -40,6 +40,15 @@ $scope.options = {
         tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value.toFixed(0) %>"+"%",
     };
     
+    $scope.colours = [{
+       fillColor: "rgba(151,187,205,0.2)",
+       strokeColor: "rgba(74, 135, 238,1)",
+       pointColor: "rgba(15,187,25,1)",
+       pointStrokeColor: "#fff",
+       pointHighlightFill: "#fff",
+       pointHighlightStroke: "rgba(151,187,205,0.8)"
+    }];
+    
     $scope.shouldShowButton = TKResultsButtonService.getShouldShowMenuButton();
     
 
