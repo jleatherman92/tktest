@@ -11,8 +11,8 @@ function($scope, $state, SSFUsersRest, $window){
     SSFUsersRest.post($scope.user)
         .then(function(response) {
            // handle different responses and decide what happens next
-           $window.localStorage.token=response.data.token
-           $window.localStorage.userId=response.data.id
+           $window.localStorage.token=response.data.token;
+           $window.localStorage.userId=response.data.id;
            
            if(response.data === null){
                return alert("user is offline");
@@ -28,6 +28,8 @@ function($scope, $state, SSFUsersRest, $window){
             return alert('Email is already taken.');
            } else if(error.status === 500){
             return alert('Server is offline');
+           } else {
+               return alert("Failed")
            }
         });
     };
