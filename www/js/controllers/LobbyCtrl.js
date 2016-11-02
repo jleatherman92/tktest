@@ -14,7 +14,7 @@ TKTestQuestionService.all();
        };
   
   $scope.logout = function(){
-      SSFUsersRest.logout($window.localSotrage.token);
+      SSFUsersRest.logout($window.localStorage.token);
     $state.go('landing');
   };
 }]);
