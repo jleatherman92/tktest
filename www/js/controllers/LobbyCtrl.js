@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
-.controller('LobbyCtrl',['$scope', 'TKTestQuestionService', '$state', 'TKAnswersService',
-function($scope, TKTestQuestionService, $state, TKAnswersService) {
+.controller('LobbyCtrl',['$scope', 'TKTestQuestionService', '$state', 'TKAnswersService', '$window', 'SSFUsersRest',
+function($scope, TKTestQuestionService, $state, TKAnswersService, $window, SSFUsersRest) {
 TKTestQuestionService.all();
 
  $scope.goToTest = function()
@@ -8,8 +8,13 @@ TKTestQuestionService.all();
         TKAnswersService.resetAnswers();
            $state.go('question',{questionID:1});
    };
+   
+  $scope.goToHistory = function(){
+           $state.go('history');
+       };
   
   $scope.logout = function(){
+      SSFUsersRest.logout($window.localSotrage.token);
     $state.go('landing');
   };
 }]);

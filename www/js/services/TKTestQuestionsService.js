@@ -1,13 +1,16 @@
 angular.module('TKTestQuestions', [])
-.service('TKTestQuestionService', ['$http', function ($http){
+.service('TKTestQuestionService', ['QuestionsRest', '$window', 
+function (QuestionsRest, $window){
     var service = this;
     var questions = [];
     service.all = function () {
-        $http.get('files/questions.json')
+        QuestionsRest.get($window.localStorage["token"])
         .then(function(response){
             if(response.status == 200)
             {
                 questions = response.data;
+                $window.localStorage.token=response.data.token;
+                $window.localStorage.userID=response.data.ID;
             }
         });
     };

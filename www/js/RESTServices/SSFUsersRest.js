@@ -18,13 +18,13 @@ SSFUsersRest.login = function(newUserData) {
  });
 };
 
-SSFUsersRest.logout = function(newUserData) {
+SSFUsersRest.logout = function(token) {
  return $http({
-   url: "https://strongloop-backend-jleatherman92.c9users.io:8080/api/SSFUsers/logout",
-   method: "POST",
-   headers: {
+  headers: {
    Authorization: token  
 },
+   url: "https://strongloop-backend-jleatherman92.c9users.io:8080/api/SSFUsers/logout",
+   method: "POST",
  });
 };
 
