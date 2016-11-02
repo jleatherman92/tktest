@@ -8,4 +8,8 @@ TKTestQuestionService.all();
         TKAnswersService.resetAnswers();
            $state.go('question',{questionID:1});
    };
+  
+  $scope.logout = function(){
+    $state.go('landing');
+  };
 }]);
