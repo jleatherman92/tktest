@@ -12,7 +12,7 @@ function($scope, $state, SSFUsersRest, $window){
         .then(function(response) {
            // handle different responses and decide what happens next
            $window.localStorage.token=response.data.token;
-           $window.localStorage.userID=response.data.ID;
+           $window.localStorage.userID=response.data.id;
            
            if(response.data === null){
                return alert("user is offline");

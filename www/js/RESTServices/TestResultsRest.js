@@ -6,7 +6,7 @@ angular.module("RESTServices")
            url: "https://strongloop-backend-jleatherman92.c9users.io/api/TestResults",
            method: 'POST',
            data: test,
-           Headers:{
+           headers:{
                  Authorization: token
             }
        });
@@ -14,7 +14,7 @@ angular.module("RESTServices")
        
     TestResultsRest.getAll = function(token) {
        return $http({
-           Headers:{
+           headers:{
                  Authorization: token
             },
             url: "https://strongloop-backend-jleatherman92.c9users.io:8080/api/TestResults",

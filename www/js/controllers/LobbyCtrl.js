@@ -13,8 +13,17 @@ TKTestQuestionService.all();
            $state.go('history');
        };
   
+
+
   $scope.logout = function(){
-      SSFUsersRest.logout($window.localStorage.token);
-    $state.go('landing');
+      SSFUsersRest.logout($window.localStorage.token)
+      .then(function(response){
+       if(response.status === 204){
+          $state.go('landing');
+       } else {
+        alert("Not able to log out");
+       }
+      });
+  
   };
 }]);

@@ -40,16 +40,23 @@ angular.module('TKTestAnswers',[])
         .then(function(response) {
             if (response.status === 200){
             } else {
-                return alert("Error, Test cannot be saved");
+                alert("Error, Test cannot be saved");
             }
             });
     
     };
     
-        service.getTests = function(test) {
+        service.getTests = function() {
          //return $window.localStorage.tests ? JSON.parse($window.localStorage.tests): [];
-        //  test.userID=$window.localStorage.userID;
-        //  TestResultsRest.get(test, $window.localStorage.token)
+         return TestResultsRest.getAll($window.localStorage.token)
+            .then(function(response){
+                if(response.status === 200){
+                    return response.data;
+                }else{
+                    alert("Error, Test results could not load");
+                }
+            });
+         
          
     };
    
