@@ -9,9 +9,9 @@ function($scope, $stateParams, testInfo, TKAnswersService, $state, $ionicHistory
           $scope.questionB = infoDict;
 });
 
-$scope.buttonClicked = function ( option ) {
-        var category = $scope["question" + option].Style;
-        TKAnswersService.saveAnswer(category);
+$scope.buttonClicked = function (answersDict) {
+        var category = $scope["question" + answersDict].Style;
+        TKAnswersService.saveAnswer(answersDict);
        
         if($scope.qNumber == 30) {
            performRequest();

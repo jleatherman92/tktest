@@ -1,5 +1,5 @@
 angular.module('TKTestAnswers',[])
-.service('TKAnswersService',['$window', function ($window) {
+.service('TKAnswersService',['$window', 'TestResultsRest', function ($window, TestResultsRest) {
     var service = this;
     var answerCategories = {
         "competing": 0,
@@ -32,13 +32,25 @@ angular.module('TKTestAnswers',[])
     };
    
     service.saveTest = function(test) {
-        var tempTests = $window.localStorage.tests === undefined ? [] : JSON.parse($window.localStorage.tests);
-        tempTests.push(test);
-        $window.localStorage.tests = JSON.stringify(tempTests);
+        test.userID=$window.localStorage.userID;
+        // var tempTests = $window.localStorage.tests === undefined ? [] : JSON.parse($window.localStorage.tests);
+        // tempTests.push(test);
+        // $window.localStorage.tests = JSON.stringify(tempTests);
+            TestResultsRest.save(test, $window.localStorage.token)
+        .then(function(response) {
+            if (response.status === 200){
+            } else {
+                return alert("Error, Test cannot be saved");
+            }
+            });
+    
     };
     
-        service.getTests = function() {
-         return $window.localStorage.tests ? JSON.parse($window.localStorage.tests): [];
+        service.getTests = function(test) {
+         //return $window.localStorage.tests ? JSON.parse($window.localStorage.tests): [];
+        //  test.userID=$window.localStorage.userID;
+        //  TestResultsRest.get(test, $window.localStorage.token)
+         
     };
    
     service.setAnswers = function(answers)
