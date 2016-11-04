@@ -48,7 +48,7 @@ angular.module('TKTestAnswers',[])
     
         service.getTests = function() {
          //return $window.localStorage.tests ? JSON.parse($window.localStorage.tests): [];
-         return TestResultsRest.getAll($window.localStorage.token)
+         return TestResultsRest.getAll($window.localStorage.token, $window.localStorage.userID)
             .then(function(response){
                 if(response.status === 200){
                     return response.data;
