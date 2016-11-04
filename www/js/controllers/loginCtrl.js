@@ -17,6 +17,7 @@ function($scope, $state, SSFUsersRest, $window){
            if(response.data === null){
                return alert("user is offline");
            }else if (response.status === 200){
+              $scope.user = {};
               $state.go('lobby');
            }
         }, function(error) {

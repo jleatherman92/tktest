@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
-.controller('RegisterCtrl', ['$scope', '$state', 'SSFUsersRest', '$window',
-function($scope, $state, SSFUsersRest, $window){
+.controller('RegisterCtrl', ['$scope', '$state', 'SSFUsersRest', '$window', '$ionicHistory',
+function($scope, $state, SSFUsersRest, $window, $ionicHistory){
 
     $scope.user = {};
         
@@ -32,5 +32,8 @@ function($scope, $state, SSFUsersRest, $window){
                return alert("Failed")
            }
         });
+        $ionicHistory.nextViewOptions({
+        historyRoot: true
+      });
     };
     }])
