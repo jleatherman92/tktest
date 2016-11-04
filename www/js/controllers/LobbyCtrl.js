@@ -21,7 +21,7 @@ TKTestQuestionService.all();
        if(response.status === 204){
           $state.go('landing');
        } else {
-        alert("Not able to log out");
+        $state.go('landing');
        }
       });
   
